@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import { useEffect, useState } from "react";
 import Card from "./components/Card/Card";
+import Filter from "./components/Filter/Filter";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 
@@ -9,10 +10,13 @@ export default function App() {
   const [fetchData, updateFetchData] = useState([]);
   const [pageNumber, updatePageNumber] = useState(1);
   const [search, setSearch] = useState("");
+  const [status, updateStatus] = useState("");
+  const [gender, updateGender] = useState("");
+  const [species, updateSpecies] = useState("");
 
   const { info, results } = fetchData;
   console.log(results);
-  let urlApi = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  let urlApi = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
     (async function () {
@@ -27,6 +31,14 @@ export default function App() {
       <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
       <div className="container">
         <div className="row">
+          <Filter
+            pageNumber={pageNumber}
+            status={status}
+            updateStatus={updateStatus}
+            updateGender={updateGender}
+            updateSpecies={updateSpecies}
+            updatePageNumber={updatePageNumber}
+          />
           <div className="col-lg-8 col-12">
             <div className="row">
               <Card results={results} />
