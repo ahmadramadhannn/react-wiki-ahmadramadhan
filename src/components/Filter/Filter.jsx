@@ -1,5 +1,5 @@
 import React from "react";
-// import Gender from "./Category/Gender";
+import Gender from "./Category/Gender";
 import Species from "./Category/Species";
 import Status from "./Category/Status";
 
@@ -36,6 +36,10 @@ export default function Filter({
         <Species
           updatePageNumber={updatePageNumber}
           updateSpecies={updateSpecies}
+        />
+        <Gender
+          updatePageNumber={updatePageNumber}
+          updateGender={updateGender}
         />
       </div>
     </div>

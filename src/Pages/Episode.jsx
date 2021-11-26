@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card/Card";
-import InputGroup from "../components/Filter/category/InputGroup";
+import InputGroup from "../components/Filter/Category/InputGroup";
 
 const Episodes = () => {
   let [results, setResults] = React.useState([]);
