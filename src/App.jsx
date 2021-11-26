@@ -1,10 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import { useEffect, useState } from "react";
+import Card from "./components/Card/Card";
+
 export default function App() {
   const [fetchData, updateFetchData] = useState([]);
   const { info, results } = fetchData;
-  let urlApi = `https://rickandmortyapi.com/api/character/?page=2`;
+  console.log(results);
+  let urlApi = `https://rickandmortyapi.com/api/character/?page=1`;
 
   useEffect(() => {
     (async function () {
@@ -20,7 +23,9 @@ export default function App() {
         <div className="row">
           Filter component will be placed here
           <div className="col-lg-8 col-12">
-            <div className="row">Card component will be placed here</div>
+            <div className="row">
+              <Card results={results} />
+            </div>
           </div>
         </div>
       </div>
