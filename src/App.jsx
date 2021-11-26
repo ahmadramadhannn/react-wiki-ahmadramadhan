@@ -1,45 +1,29 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap";
+import { useEffect, useState } from "react";
+export default function App() {
+  const [fetchData, updateFetchData] = useState([]);
+  const { info, results } = fetchData;
+  let urlApi = `https://rickandmortyapi.com/api/character/?page=2`;
 
-function App() {
-  const [count, setCount] = useState(0)
-
+  useEffect(() => {
+    (async function () {
+      const data = await fetch(urlApi).then((res) => res.json());
+      updateFetchData(data);
+      console.log(data);
+    })();
+  }, [urlApi]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <h1 className="text-center mb-3">All Characters</h1>
+      <div className="container">
+        <div className="row">
+          Filter component will be placed here
+          <div className="col-lg-8 col-12">
+            <div className="row">Card component will be placed here</div>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
-
-export default App
