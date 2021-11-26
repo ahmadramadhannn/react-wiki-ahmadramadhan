@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./Card.module.scss";
 
 const CardDetails = () => {
   let { id } = useParams();
@@ -18,7 +19,9 @@ const CardDetails = () => {
 
   return (
     <div className="container d-flex justify-content-center mb-5">
-      <div className="d-flex flex-column gap-3">
+      <div
+        className={`${styles.card} d-flex flex-column gap-3 ${styles.extraPadding}`}
+      >
         <h1 className="text-center">{name}</h1>
 
         <img className="img-fluid" src={image} alt="" />
