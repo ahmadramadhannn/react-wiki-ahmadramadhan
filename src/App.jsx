@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import { useEffect, useState } from "react";
 import Card from "./components/Card/Card";
+import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 
 export default function App() {
@@ -32,6 +33,11 @@ export default function App() {
             </div>
           </div>
         </div>
+        <Pagination
+          info={info}
+          pageNumber={pageNumber}
+          updatePageNumber={updatePageNumber}
+        />
       </div>
     </div>
   );

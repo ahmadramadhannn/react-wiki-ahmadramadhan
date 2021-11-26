@@ -17,7 +17,8 @@ export default function Card({ results }) {
           >
             <img src={image} className={`${styles.img} img-fluid`} />
             <div className={`${styles.content}`}>
-              <div className="fs-5 fw-bold mb-4">
+              <div className="fs-5 fw-bold mb-4">{name}</div>
+              <div className="">
                 <div>
                   <div className="fs-6 fw-normal">Last Location</div>
                   <div className="fs-5">{location.name}</div>
